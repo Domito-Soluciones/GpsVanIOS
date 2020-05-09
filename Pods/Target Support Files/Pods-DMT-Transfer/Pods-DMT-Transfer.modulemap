@@ -1,0 +1,6 @@
+framework module Pods_DMT_Transfer {
+  umbrella header "Pods-DMT-Transfer-umbrella.h"
+
+  export *
+  module * { export * }
+}

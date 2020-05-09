@@ -3,27 +3,83 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F7FE9557BA1432C5B1124AC /* Pods_DMT_Transfer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BDC8B8D672C54532E7DC251 /* Pods_DMT_Transfer.framework */; };
 		C61C23F8242FE5D800F2BE28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61C23F7242FE5D800F2BE28 /* AppDelegate.swift */; };
 		C61C23FA242FE5D800F2BE28 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61C23F9242FE5D800F2BE28 /* SceneDelegate.swift */; };
-		C61C23FC242FE5D800F2BE28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61C23FB242FE5D800F2BE28 /* ViewController.swift */; };
 		C61C23FF242FE5D800F2BE28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C61C23FD242FE5D800F2BE28 /* Main.storyboard */; };
 		C61C2401242FE5DA00F2BE28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C61C2400242FE5DA00F2BE28 /* Assets.xcassets */; };
 		C61C2404242FE5DA00F2BE28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C61C2402242FE5DA00F2BE28 /* LaunchScreen.storyboard */; };
+		C61C240F242FE6A900F2BE28 /* ContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61C240E242FE6A900F2BE28 /* ContainerController.swift */; };
+		C61C2411242FE6E100F2BE28 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61C2410242FE6E100F2BE28 /* HomeController.swift */; };
+		C61C2413242FE70A00F2BE28 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61C2412242FE70A00F2BE28 /* MenuController.swift */; };
+		C61C2416242FE75700F2BE28 /* Conductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61C2415242FE75700F2BE28 /* Conductor.swift */; };
+		C61C2418242FE76200F2BE28 /* Constantes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61C2417242FE76200F2BE28 /* Constantes.swift */; };
+		C61C241A242FE77000F2BE28 /* MenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61C2419242FE77000F2BE28 /* MenuOption.swift */; };
+		C61C241D242FE80F00F2BE28 /* MenuOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61C241C242FE80F00F2BE28 /* MenuOptionCell.swift */; };
+		C61C2420242FE84900F2BE28 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61C241F242FE84900F2BE28 /* Util.swift */; };
+		C61C2422242FE85500F2BE28 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61C2421242FE85500F2BE28 /* Protocols.swift */; };
+		C61C2424242FE89300F2BE28 /* SwiftBase64.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61C2423242FE89300F2BE28 /* SwiftBase64.swift */; };
+		C6324858243028E30062EF0D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6324857243028E30062EF0D /* TableViewCell.swift */; };
+		C632485A2430292A0062EF0D /* Servicio.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63248592430292A0062EF0D /* Servicio.swift */; };
+		C64069C424300907004F5147 /* HistorialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64069C324300907004F5147 /* HistorialController.swift */; };
+		C64069C62430093F004F5147 /* HistorialDetalleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64069C52430093F004F5147 /* HistorialDetalleController.swift */; };
+		C64069C824300986004F5147 /* ProduccionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64069C724300986004F5147 /* ProduccionController.swift */; };
+		C64069CA2430099F004F5147 /* ConfiguracionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64069C92430099F004F5147 /* ConfiguracionController.swift */; };
+		C64069CC243009D7004F5147 /* ServicioDetalleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64069CB243009D7004F5147 /* ServicioDetalleController.swift */; };
+		C64069CE24300A09004F5147 /* PasajeroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64069CD24300A09004F5147 /* PasajeroController.swift */; };
+		C64069D024300A28004F5147 /* FinServicioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64069CF24300A28004F5147 /* FinServicioController.swift */; };
+		C64069D324300CC8004F5147 /* BackgroundTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64069D224300CC8004F5147 /* BackgroundTask.swift */; };
+		C676230E2432E8FB00E39618 /* TableViewCellDetalle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C676230D2432E8FB00E39618 /* TableViewCellDetalle.swift */; };
+		C67623102432E9F300E39618 /* Pasajero.swift in Sources */ = {isa = PBXBuildFile; fileRef = C676230F2432E9F300E39618 /* Pasajero.swift */; };
+		C67B61A92436818300A49AA2 /* HttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67B61A82436818300A49AA2 /* HttpService.swift */; };
+		C6C8991E242FF06B006D3B09 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C8991D242FF06B006D3B09 /* LoginController.swift */; };
+		C6CDF3382457A6410010C509 /* TableViewCellHistorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CDF3372457A6410010C509 /* TableViewCellHistorial.swift */; };
+		C6CDF33A2457C4140010C509 /* TableViewCellProduccion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CDF3392457C4140010C509 /* TableViewCellProduccion.swift */; };
+		C6CDF33E2457E6AF0010C509 /* TableViewCellPasajero.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CDF33D2457E6AF0010C509 /* TableViewCellPasajero.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1BDC8B8D672C54532E7DC251 /* Pods_DMT_Transfer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DMT_Transfer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		34D793FB9902F7715618A076 /* Pods-DMT-Transfer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DMT-Transfer.debug.xcconfig"; path = "Target Support Files/Pods-DMT-Transfer/Pods-DMT-Transfer.debug.xcconfig"; sourceTree = "<group>"; };
 		C61C23F4242FE5D800F2BE28 /* DMT-Transfer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DMT-Transfer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C61C23F7242FE5D800F2BE28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C61C23F9242FE5D800F2BE28 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C61C23FB242FE5D800F2BE28 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C61C23FE242FE5D800F2BE28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C61C2400242FE5DA00F2BE28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C61C2403242FE5DA00F2BE28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C61C2405242FE5DA00F2BE28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C61C240E242FE6A900F2BE28 /* ContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerController.swift; sourceTree = "<group>"; };
+		C61C2410242FE6E100F2BE28 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		C61C2412242FE70A00F2BE28 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		C61C2415242FE75700F2BE28 /* Conductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conductor.swift; sourceTree = "<group>"; };
+		C61C2417242FE76200F2BE28 /* Constantes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constantes.swift; sourceTree = "<group>"; };
+		C61C2419242FE77000F2BE28 /* MenuOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOption.swift; sourceTree = "<group>"; };
+		C61C241C242FE80F00F2BE28 /* MenuOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOptionCell.swift; sourceTree = "<group>"; };
+		C61C241F242FE84900F2BE28 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		C61C2421242FE85500F2BE28 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		C61C2423242FE89300F2BE28 /* SwiftBase64.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBase64.swift; sourceTree = "<group>"; };
+		C6324857243028E30062EF0D /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		C63248592430292A0062EF0D /* Servicio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Servicio.swift; sourceTree = "<group>"; };
+		C64069C324300907004F5147 /* HistorialController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorialController.swift; sourceTree = "<group>"; };
+		C64069C52430093F004F5147 /* HistorialDetalleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorialDetalleController.swift; sourceTree = "<group>"; };
+		C64069C724300986004F5147 /* ProduccionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProduccionController.swift; sourceTree = "<group>"; };
+		C64069C92430099F004F5147 /* ConfiguracionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfiguracionController.swift; sourceTree = "<group>"; };
+		C64069CB243009D7004F5147 /* ServicioDetalleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicioDetalleController.swift; sourceTree = "<group>"; };
+		C64069CD24300A09004F5147 /* PasajeroController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasajeroController.swift; sourceTree = "<group>"; };
+		C64069CF24300A28004F5147 /* FinServicioController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinServicioController.swift; sourceTree = "<group>"; };
+		C64069D224300CC8004F5147 /* BackgroundTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTask.swift; sourceTree = "<group>"; };
+		C676230D2432E8FB00E39618 /* TableViewCellDetalle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellDetalle.swift; sourceTree = "<group>"; };
+		C676230F2432E9F300E39618 /* Pasajero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pasajero.swift; sourceTree = "<group>"; };
+		C67B61A82436818300A49AA2 /* HttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpService.swift; sourceTree = "<group>"; };
+		C6C8991D242FF06B006D3B09 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		C6CDF3372457A6410010C509 /* TableViewCellHistorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellHistorial.swift; sourceTree = "<group>"; };
+		C6CDF3392457C4140010C509 /* TableViewCellProduccion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellProduccion.swift; sourceTree = "<group>"; };
+		C6CDF33D2457E6AF0010C509 /* TableViewCellPasajero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellPasajero.swift; sourceTree = "<group>"; };
+		E3A6BA8BEF2D7E5371446304 /* Pods-DMT-Transfer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DMT-Transfer.release.xcconfig"; path = "Target Support Files/Pods-DMT-Transfer/Pods-DMT-Transfer.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +87,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F7FE9557BA1432C5B1124AC /* Pods_DMT_Transfer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A6877EFB2E5E142DA49BE996 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				34D793FB9902F7715618A076 /* Pods-DMT-Transfer.debug.xcconfig */,
+				E3A6BA8BEF2D7E5371446304 /* Pods-DMT-Transfer.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		C61C23EB242FE5D800F2BE28 = {
 			isa = PBXGroup;
 			children = (
 				C61C23F6242FE5D800F2BE28 /* DMT-Transfer */,
 				C61C23F5242FE5D800F2BE28 /* Products */,
+				A6877EFB2E5E142DA49BE996 /* Pods */,
+				F390E9AB359C31C7B67CAF54 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +124,89 @@
 		C61C23F6242FE5D800F2BE28 /* DMT-Transfer */ = {
 			isa = PBXGroup;
 			children = (
+				C64069D124300CB1004F5147 /* Service */,
+				C61C241E242FE83C00F2BE28 /* Utils */,
+				C61C241B242FE7E500F2BE28 /* View */,
+				C61C2414242FE73E00F2BE28 /* Model */,
+				C61C240B242FE64C00F2BE28 /* Controller */,
 				C61C23F7242FE5D800F2BE28 /* AppDelegate.swift */,
 				C61C23F9242FE5D800F2BE28 /* SceneDelegate.swift */,
-				C61C23FB242FE5D800F2BE28 /* ViewController.swift */,
 				C61C23FD242FE5D800F2BE28 /* Main.storyboard */,
 				C61C2400242FE5DA00F2BE28 /* Assets.xcassets */,
 				C61C2402242FE5DA00F2BE28 /* LaunchScreen.storyboard */,
 				C61C2405242FE5DA00F2BE28 /* Info.plist */,
 			);
 			path = "DMT-Transfer";
+			sourceTree = "<group>";
+		};
+		C61C240B242FE64C00F2BE28 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C61C240E242FE6A900F2BE28 /* ContainerController.swift */,
+				C61C2410242FE6E100F2BE28 /* HomeController.swift */,
+				C61C2412242FE70A00F2BE28 /* MenuController.swift */,
+				C6C8991D242FF06B006D3B09 /* LoginController.swift */,
+				C64069C324300907004F5147 /* HistorialController.swift */,
+				C64069C52430093F004F5147 /* HistorialDetalleController.swift */,
+				C64069C724300986004F5147 /* ProduccionController.swift */,
+				C64069C92430099F004F5147 /* ConfiguracionController.swift */,
+				C64069CB243009D7004F5147 /* ServicioDetalleController.swift */,
+				C64069CD24300A09004F5147 /* PasajeroController.swift */,
+				C64069CF24300A28004F5147 /* FinServicioController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C61C2414242FE73E00F2BE28 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C61C2415242FE75700F2BE28 /* Conductor.swift */,
+				C61C2417242FE76200F2BE28 /* Constantes.swift */,
+				C61C2419242FE77000F2BE28 /* MenuOption.swift */,
+				C63248592430292A0062EF0D /* Servicio.swift */,
+				C676230F2432E9F300E39618 /* Pasajero.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C61C241B242FE7E500F2BE28 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C61C241C242FE80F00F2BE28 /* MenuOptionCell.swift */,
+				C6324857243028E30062EF0D /* TableViewCell.swift */,
+				C676230D2432E8FB00E39618 /* TableViewCellDetalle.swift */,
+				C6CDF3372457A6410010C509 /* TableViewCellHistorial.swift */,
+				C6CDF3392457C4140010C509 /* TableViewCellProduccion.swift */,
+				C6CDF33D2457E6AF0010C509 /* TableViewCellPasajero.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C61C241E242FE83C00F2BE28 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C61C241F242FE84900F2BE28 /* Util.swift */,
+				C61C2421242FE85500F2BE28 /* Protocols.swift */,
+				C61C2423242FE89300F2BE28 /* SwiftBase64.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C64069D124300CB1004F5147 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C64069D224300CC8004F5147 /* BackgroundTask.swift */,
+				C67B61A82436818300A49AA2 /* HttpService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		F390E9AB359C31C7B67CAF54 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1BDC8B8D672C54532E7DC251 /* Pods_DMT_Transfer.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +216,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C61C2408242FE5DA00F2BE28 /* Build configuration list for PBXNativeTarget "DMT-Transfer" */;
 			buildPhases = (
+				930A779612D1CE8E6C04401D /* [CP] Check Pods Manifest.lock */,
 				C61C23F0242FE5D800F2BE28 /* Sources */,
 				C61C23F1242FE5D800F2BE28 /* Frameworks */,
 				C61C23F2242FE5D800F2BE28 /* Resources */,
+				C53337F9DFB796A9CC568AA4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,14 +277,82 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		930A779612D1CE8E6C04401D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DMT-Transfer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C53337F9DFB796A9CC568AA4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DMT-Transfer/Pods-DMT-Transfer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DMT-Transfer/Pods-DMT-Transfer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DMT-Transfer/Pods-DMT-Transfer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C61C23F0242FE5D800F2BE28 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C61C23FC242FE5D800F2BE28 /* ViewController.swift in Sources */,
+				C64069CA2430099F004F5147 /* ConfiguracionController.swift in Sources */,
+				C67B61A92436818300A49AA2 /* HttpService.swift in Sources */,
+				C6CDF3382457A6410010C509 /* TableViewCellHistorial.swift in Sources */,
+				C61C241D242FE80F00F2BE28 /* MenuOptionCell.swift in Sources */,
+				C61C2413242FE70A00F2BE28 /* MenuController.swift in Sources */,
+				C64069D324300CC8004F5147 /* BackgroundTask.swift in Sources */,
+				C61C240F242FE6A900F2BE28 /* ContainerController.swift in Sources */,
+				C6C8991E242FF06B006D3B09 /* LoginController.swift in Sources */,
+				C61C241A242FE77000F2BE28 /* MenuOption.swift in Sources */,
+				C64069C424300907004F5147 /* HistorialController.swift in Sources */,
+				C64069D024300A28004F5147 /* FinServicioController.swift in Sources */,
+				C61C2416242FE75700F2BE28 /* Conductor.swift in Sources */,
+				C61C2411242FE6E100F2BE28 /* HomeController.swift in Sources */,
+				C61C2420242FE84900F2BE28 /* Util.swift in Sources */,
+				C64069C62430093F004F5147 /* HistorialDetalleController.swift in Sources */,
+				C61C2424242FE89300F2BE28 /* SwiftBase64.swift in Sources */,
+				C61C2418242FE76200F2BE28 /* Constantes.swift in Sources */,
+				C61C2422242FE85500F2BE28 /* Protocols.swift in Sources */,
+				C632485A2430292A0062EF0D /* Servicio.swift in Sources */,
 				C61C23F8242FE5D800F2BE28 /* AppDelegate.swift in Sources */,
+				C6324858243028E30062EF0D /* TableViewCell.swift in Sources */,
+				C6CDF33A2457C4140010C509 /* TableViewCellProduccion.swift in Sources */,
+				C676230E2432E8FB00E39618 /* TableViewCellDetalle.swift in Sources */,
+				C64069CC243009D7004F5147 /* ServicioDetalleController.swift in Sources */,
 				C61C23FA242FE5D800F2BE28 /* SceneDelegate.swift in Sources */,
+				C64069C824300986004F5147 /* ProduccionController.swift in Sources */,
+				C67623102432E9F300E39618 /* Pasajero.swift in Sources */,
+				C64069CE24300A09004F5147 /* PasajeroController.swift in Sources */,
+				C6CDF33E2457E6AF0010C509 /* TableViewCellPasajero.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +428,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +482,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -282,37 +494,45 @@
 		};
 		C61C2409242FE5DA00F2BE28 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34D793FB9902F7715618A076 /* Pods-DMT-Transfer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = TS3CF84ZNK;
 				INFOPLIST_FILE = "DMT-Transfer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "domito.DMT-Transfer";
+				PRODUCT_BUNDLE_IDENTIFIER = "cl.domito.DMT-Transfer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		C61C240A242FE5DA00F2BE28 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3A6BA8BEF2D7E5371446304 /* Pods-DMT-Transfer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = TS3CF84ZNK;
 				INFOPLIST_FILE = "DMT-Transfer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "domito.DMT-Transfer";
+				PRODUCT_BUNDLE_IDENTIFIER = "cl.domito.DMT-Transfer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
