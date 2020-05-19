@@ -25,6 +25,8 @@ class ServicioDetalleController: UIViewController, UITableViewDelegate,  UITable
     @IBOutlet weak var imageViewAceptar: UIImageView!
     @IBOutlet weak var imageViewCancelar: UIImageView!
     
+    
+    
     var cantidadPasajeros:Int = 0
     let tableView = UITableView()
     var pasajeros:[Pasajero] = []
@@ -78,6 +80,31 @@ class ServicioDetalleController: UIViewController, UITableViewDelegate,  UITable
             self.pasajeroLabel.text = "\(i)"
             self.cantidadPasajeros = i
             configureTableView()
+            print(self.estado)
+            if(self.estado == "4"){
+                imageViewAceptar.translatesAutoresizingMaskIntoConstraints = false
+                self.imageViewAceptar.image = UIImage(named: "okazul")
+                imageViewAceptar.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+                imageViewAceptar.bottomAnchor.constraint(equalTo:self.view.safeAreaLayoutGuide.bottomAnchor, constant:-20).isActive = true
+                imageViewAceptar.widthAnchor.constraint(equalToConstant:100).isActive = true
+                imageViewAceptar.heightAnchor.constraint(equalToConstant:100).isActive = true
+                self.imageViewCancelar.isHidden = true
+            }
+            else{
+                imageViewAceptar.translatesAutoresizingMaskIntoConstraints = false
+                
+                imageViewAceptar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant: 50).isActive = true
+                imageViewAceptar.bottomAnchor.constraint(equalTo:self.view.bottomAnchor, constant:-20).isActive = true
+                imageViewAceptar.widthAnchor.constraint(equalToConstant:100).isActive = true
+                imageViewAceptar.heightAnchor.constraint(equalToConstant:100).isActive = true
+                
+                imageViewCancelar.translatesAutoresizingMaskIntoConstraints = false
+                imageViewCancelar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,constant: -50).isActive = true
+                imageViewCancelar.bottomAnchor.constraint(equalTo:self.view.bottomAnchor, constant:-20).isActive = true
+                imageViewCancelar.widthAnchor.constraint(equalToConstant:90).isActive = true
+                imageViewCancelar.heightAnchor.constraint(equalToConstant:90).isActive = true
+                
+            }
         }
         
     }
@@ -113,6 +140,7 @@ class ServicioDetalleController: UIViewController, UITableViewDelegate,  UITable
                         switch response.result {
                         case .success:
                             if response.result.value != nil {
+                                Constantes.rootController!.obtenerServiciosProgramados()
                                 self.cambiarEstadoNotificacion(id: self.idLabel.text!)
                             }
                             break
@@ -140,10 +168,11 @@ class ServicioDetalleController: UIViewController, UITableViewDelegate,  UITable
                             switch response.result {
                             case .success:
                                 if response.result.value != nil {
+                                    Constantes.rootController!.obtenerServiciosProgramados()
                                     let controller = PasajeroController()
                                     controller.modalPresentationStyle = .fullScreen
                                     controller.modalTransitionStyle = .crossDissolve
-                                     self.present(controller, animated: true, completion: nil)
+                                    self.present(UINavigationController(rootViewController: controller), animated: true, completion: nil)
                                 }
                                 break
                             case .failure( _):
@@ -152,7 +181,7 @@ class ServicioDetalleController: UIViewController, UITableViewDelegate,  UITable
                             }
                 }
             } else {
-                Util.showToast(view: self.view, message: "Falta mas de 1 hora para el inicio del servicio")
+                Util.showToast(view: Constantes.rootController!.view, message: "Falta mas de 1 hora para el inicio del servicio")
             }
         }
         if(self.estado == "4"){

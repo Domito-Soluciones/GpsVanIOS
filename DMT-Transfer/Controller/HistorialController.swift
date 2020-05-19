@@ -131,7 +131,7 @@ class HistorialController: UIViewController, UITableViewDelegate,  UITableViewDa
         let viewCtrl = storyboard.instantiateViewController(withIdentifier: "historialDetalleController")
         viewCtrl.modalPresentationStyle = .fullScreen
         viewCtrl.modalTransitionStyle = .crossDissolve
-        self.present(viewCtrl, animated: true, completion: nil)
+        self.present(UINavigationController(rootViewController: viewCtrl), animated: true, completion: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

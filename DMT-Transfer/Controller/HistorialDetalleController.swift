@@ -13,6 +13,16 @@ import SwiftyJSON
 class HistorialDetalleController: UIViewController, UITableViewDelegate,  UITableViewDataSource{
 
     
+    @IBOutlet weak var lblId: UILabel!
+    @IBOutlet weak var lblCliente: UILabel!
+    @IBOutlet weak var lblFecha: UILabel!
+    @IBOutlet weak var lblHora: UILabel!
+    @IBOutlet weak var lblRuta: UILabel!
+    @IBOutlet weak var lblTipoRuta: UILabel!
+    @IBOutlet weak var lblTarifa: UILabel!
+    @IBOutlet weak var lblPasajeros: UILabel!
+    @IBOutlet weak var lblObservacion: UILabel!
+    
     var cantidadPasajeros:Int = 0
     let tableView = UITableView()
     var pasajeros:[Pasajero] = []
@@ -23,54 +33,66 @@ class HistorialDetalleController: UIViewController, UITableViewDelegate,  UITabl
         configureNavigationBar()
         let id = HistorialController.servicioId
         var servicio:[Servicio] = []
-        for aux in Constantes.servicios {
-            if(aux.id == id){
-                servicio.append(aux)
-            }
+        let parameters: [String: AnyObject] = ["id": id as AnyObject];
+        Alamofire.request(Constantes.URL_BASE_SERVICIO + "GetServicioHistorico.php", method: .post,parameters: parameters)
+                .validate(statusCode: 200..<300)
+                .responseJSON { response in
+                    switch response.result {
+                    case .success:
+                        if response.result.value != nil{
+                            var servicioAnterior = ""
+                            let json = JSON(response.result.value)
+                            var i = 0
+                            if(json.count > 0){
+                                for _ in json {
+                                    if(i == 0){
+                                        self.lblId.text = json[i]["servicio_id"].string!
+                                        self.lblCliente.text = json[i]["servicio_cliente"].string!
+                                        self.lblFecha.text = json[i]["servicio_fecha"].string!
+                                        self.lblHora.text = json[i]["servicio_hora"].string!
+                                        self.lblRuta.text = json[i]["servicio_ruta"].string!
+                                        self.lblTipoRuta.text = json[i]["servicio_truta"].string!
+                                        self.lblTarifa.text = json[i]["servicio_tarifa"].string!
+                                        self.lblObservacion.text = json[i]["servicio_observacion"].string! == "" ? "Sin observaciones" : json[i]["servicio_observacion"].string!
+                                        self.estado = json[i]["servicio_estado"].string!
+                                        
+                                    }
+                                    let idPasajero = json[i]["servicio_pasajero_id_pasajero"].string!
+                                    let nombre = json[i]["servicio_pasajero_nombre"].string!
+                                    let destino = json[i]["servicio_destino"].string!
+                                    let telefono = json[i]["servicio_pasajero_celular"].string!
+                                    let pasajero = Pasajero(id: idPasajero,nombre: nombre,destino: destino,telefono: telefono, estado: "0",index:0)
+                                    self.pasajeros.append(pasajero)
+                                    i += 1
+                                }
+                                self.lblPasajeros.text = "\(i)"
+                                self.cantidadPasajeros = i
+                            }
+                            self.view.backgroundColor = .white
+                            self.configureTableView()
+                        }
+                         self.configureNavigationBar()
+                        break
+                    case .failure(let error):
+                        print(error)
+                        let code = response.response!.statusCode
+                        print(code)
+                        Util.showToast(view: self.view,message: "Ocurrio un error en el servidor ")
+                        break
+                    }
         }
-        var i = 0
-        if(servicio.count > 0){
-            for aux in servicio {
-                if(i == 0){
-                    /*
-                     self.idLabel.text = aux.id
-                    self.clienteLabel.text = aux.empresa
-                    self.fechaLabel.text = aux.fecha
-                    self.horaLabel.text = aux.hora
-                    self.rutaLabel.text = aux.ruta
-                    self.tipoRutaLabel.text = aux.truta
-                    self.tarifaLabel.text = aux.tarifa
-                    self.observacionLabel.text = aux.observacion == "" ? "Sin observaciones" : aux.observacion
-                    self.estado = aux.estado!*/
-                }
-                let idPasajero = aux.idPasajero
-                let nombre = aux.nombrePasajero
-                let destino = aux.destinoPasajero
-                let telefono = aux.telefonoPasajero
-                //let pasajero = Pasajero(id: idPasajero,nombre: nombre,destino: destino,telefono: telefono, estado: "0")
-                //pasajeros.append(pasajero)
-                i += 1
-            }
-            //self.pasajeroLabel.text = "\(i)"
-            self.cantidadPasajeros = i
-            configureTableView()
-        }
+    
         
     }
         
     func configureNavigationBar() {
-        let height: CGFloat = 75
-        let navbar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: height))
-        navbar.backgroundColor = .blue
-        let navItem = UINavigationItem()
+        navigationController?.navigationBar.barTintColor = .blue
+        navigationController?.navigationBar.barStyle = .black
         self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Arial", size: 30.0)!];
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        navItem.title = "Detalle Servicio"
+        self.navigationItem.title = "Detalle Servicio"
         let imagen = UIBarButtonItem(image: UIImage(named: "atras"), style: .plain, target: self, action: #selector(volver))
-        imagen.width = 50
-        navItem.leftBarButtonItem = imagen
-        navbar.items = [navItem]
-        view.addSubview(navbar)
+        navigationItem.leftBarButtonItem = imagen
     }
     
     func configureTableView(){
@@ -79,7 +101,7 @@ class HistorialDetalleController: UIViewController, UITableViewDelegate,  UITabl
         tableView.leftAnchor.constraint(equalTo:view.safeAreaLayoutGuide.leftAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo:view.safeAreaLayoutGuide.rightAnchor).isActive = true
         //tableView.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        //tableView.topAnchor.constraint(equalTo:self.observacionLabel.bottomAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo:self.lblObservacion.bottomAnchor).isActive = true
         tableView.heightAnchor.constraint(equalToConstant:250).isActive = true
         tableView.dataSource = self
         tableView.delegate = self

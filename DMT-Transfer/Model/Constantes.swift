@@ -17,5 +17,6 @@ struct Constantes{
       static var DEVICE_APPLE_ID = ""
       static var conductor = Conductor()
       static var servicios:[Servicio] = []
+      static var rootController:HomeController? = nil
 }
 

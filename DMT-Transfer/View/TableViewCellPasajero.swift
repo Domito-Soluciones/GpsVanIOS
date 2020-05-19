@@ -38,7 +38,7 @@ class TableViewCellPasajero: UITableViewCell {
              navegarImageView.image = UIImage(named: "navegar")
              aceptarImageView.image = UIImage(named: "confirmar")
              cancelarImageView.image = UIImage(named: "cerrar")
-             if(index! > 0){
+            if(index! > 0 ){
                 navegarImageView.isHidden = true
                 aceptarImageView.isHidden = true
              }

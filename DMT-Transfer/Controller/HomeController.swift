@@ -16,16 +16,16 @@ class HomeController: UIViewController, UITableViewDelegate,  UITableViewDataSou
     let tableView = UITableView()
     var delegate: HomeControllerDelegate?
     var refreshControl = UIRefreshControl()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
+        Constantes.rootController = self
         UNUserNotificationCenter.current().delegate = self
         refreshControl.attributedTitle = NSAttributedString(string: "Cargando...")
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tableView.addSubview(refreshControl)
         NotificationCenter.default.addObserver(self, selector: #selector(onResume), name:
         UIApplication.willEnterForegroundNotification, object: nil)
-        obtenerServiciosProgramados()
     }
         
     @objc func handleMenuToggle() {
@@ -92,7 +92,7 @@ class HomeController: UIViewController, UITableViewDelegate,  UITableViewDataSou
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("")
+        obtenerServiciosProgramados()
     }
     
     override func didReceiveMemoryWarning() {
@@ -102,6 +102,7 @@ class HomeController: UIViewController, UITableViewDelegate,  UITableViewDataSou
 
     func obtenerServiciosProgramados(){
         servicios.removeAll()
+        Constantes.servicios.removeAll()
         let conductor = Constantes.conductor.id
                let parameters: [String: AnyObject] = ["conductor": conductor as AnyObject];
                Alamofire.request(Constantes.URL_BASE_SERVICIO + "GetServiciosProgramados.php", method: .post,parameters: parameters)

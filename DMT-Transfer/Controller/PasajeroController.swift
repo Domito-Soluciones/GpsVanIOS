@@ -41,7 +41,7 @@ class PasajeroController: UIViewController, UITableViewDelegate,  UITableViewDat
     func configureNavigationBar() {
         navigationController?.navigationBar.barTintColor = .blue
         navigationController?.navigationBar.barStyle = .black
-        self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Arial", size: 30.0)!];
+        //self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Arial", size: 30.0)!];
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationItem.title = "Servicio Iniciado"
         let imagen = UIBarButtonItem(image: UIImage(named: "atras"), style: .plain, target: self, action: #selector(volver))
@@ -87,6 +87,7 @@ class PasajeroController: UIViewController, UITableViewDelegate,  UITableViewDat
                           if response.result.value != nil{
                               let json = JSON(response.result.value)
                               var i = 0
+                              var j = 0
                               if(json.count > 0){
                                   let tipo = json[0]["servicio_truta"].string!
                                   if(!Constantes.conductor.zarpeIniciado && tipo.contains("ZP")){
@@ -100,7 +101,7 @@ class PasajeroController: UIViewController, UITableViewDelegate,  UITableViewDat
                                           destino: destino,
                                           telefono: telefono,
                                           estado: estado,
-                                          index: i)
+                                          index: 0)
                                       //i = i + 1
                                       self.pasajeros.append(primero)
                                   }
@@ -110,29 +111,36 @@ class PasajeroController: UIViewController, UITableViewDelegate,  UITableViewDat
                                       let telefono = json[i]["servicio_pasajero_celular"].string!
                                       let destino = json[i]["servicio_destino"].string!
                                       let estado = json[i]["servicio_pasajero_estado"].string!
+                                      var index = j;
+                                      if(!Constantes.conductor.zarpeIniciado && tipo.contains("ZP")){
+                                          index = index+1
+                                      }
                                       let aux = Pasajero(
                                           id: idAux,
                                           nombre: nombre,
                                           destino: destino,
                                           telefono: telefono,
                                           estado: estado,
-                                          index: i)
-                                      i = i + 1
+                                          index: index)
+                                    i = i + 1
                                      if(tipo.contains("ZP")){
                                           if (estado != "3" && estado != "2"){
                                               self.pasajeros.append(aux)
+                                              j = j + 1
                                           }
                                       }
                                       else if(tipo.contains("RG")){
                                           if (estado != "3" && estado != "2" && estado != "1"){
                                               self.pasajeros.append(aux)
-                                          }
+                                              j = j + 1
+                                        }
                                       }
                                       else if(tipo.contains("XX")){
                                           if (estado != "3" && estado != "2" && estado != "1"){
                                               if(destino != ""){
                                                   self.pasajeros.append(aux)
-                                              }
+                                                  j = j + 1
+                                            }
                                           }
                                       }
                                       //i += 1
@@ -155,11 +163,23 @@ class PasajeroController: UIViewController, UITableViewDelegate,  UITableViewDat
                                   self.view.backgroundColor = .white
                                   self.configureTableView()
                               }
-                              else{
-                                  Util.showToast(view: self.view,message: "No hay pasajeros asignados")
+                              if(self.pasajeros.count == 0){
+                                //self.dismiss(animated: true, completion: nil)
+                                let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                                let viewCtrl = storyboard.instantiateViewController(withIdentifier: "finServicioController")
+                                viewCtrl.modalPresentationStyle = .fullScreen
+                                viewCtrl.modalTransitionStyle = .crossDissolve
+                                self.present(UINavigationController(rootViewController: viewCtrl), animated: true, completion: nil)
+                                FinServicioController.idServicio = json[0]["servicio_id"].stringValue
+                                FinServicioController.cliente = json[0]["servicio_cliente"].stringValue
+                                FinServicioController.fecha = json[0]["servicio_fecha"].stringValue
+                                FinServicioController.tarifa = json[0]["servicio_tarifa"].stringValue
                               }
-                              self.configureNavigationBar()
-                              self.configureTableView()
+                              else{
+                                self.configureNavigationBar()
+                                self.configureTableView()
+                            }
+                        
                           }
                           break
                       case .failure(let error):
